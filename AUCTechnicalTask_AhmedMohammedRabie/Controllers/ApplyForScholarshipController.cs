@@ -8,6 +8,7 @@ using OfficeOpenXml;
 using PagedList;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -96,6 +97,11 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Controllers
 
             
             return View();
+        }
+        public FileResult Download(string FileName)
+        {
+            var virtualPath = "~/UploadedImages/CV/" + FileName;
+            return File(virtualPath, "application/force- download", Path.GetFileName(virtualPath));
         }
         public void DownloadExcel(int SchId)
         {

@@ -172,7 +172,7 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Controllers
                 var Extension = CV.FileName.Substring(CV.FileName.LastIndexOf('.')).ToLower();
                 var LowerExtension = Extension.ToLower();
                 string FileNameImage = "scholarshipImage-" + Guid.NewGuid().ToString() + LowerExtension;
-                model.ResumeLink = FileNameImage;
+                user.ResumeLink = FileNameImage;
 
                 string path = Path.Combine(Server.MapPath("~/UploadedImages/CV"), FileNameImage.Replace(" ", "_"));
                 CV.SaveAs(path);
