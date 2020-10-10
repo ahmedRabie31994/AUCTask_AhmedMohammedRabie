@@ -16,6 +16,7 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Controllers
 {
     public class ApplyForScholarshipController : Controller
     {
+
         private readonly IApplyForScholarshipManager _manager;
         public ApplyForScholarshipController()
         {
