@@ -16,7 +16,7 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Controllers
 {
     public class ApplyForScholarshipController : Controller
     {
-
+        //test githup
         private readonly IApplyForScholarshipManager _manager;
         public ApplyForScholarshipController()
         {
