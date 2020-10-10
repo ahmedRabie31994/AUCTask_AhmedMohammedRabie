@@ -1,0 +1,90 @@
+﻿@model AUCTechnicalTask_AhmedMohammedRabie.BL.ViewModels.ScholarShip.ScholarshipDTO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<h2 style="padding-top:100px; padding-bottom:50px; color:darkslateblue">Details of Scholarship</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Title")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Description")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Image")
+        </dt>
+
+        <dd>
+            <img src="~/UploadedImages/scholarship/@Model.ImagPath" class="thumbnail" style="width:150px;height:150px;" />
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Added Date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddedDate)
+        </dd>
+        <dt>
+           
+                
+                    <a type="button" class="btn btn-outline btn-default" data-toggle="modal" href="#addRequestSource"><i class="fa fa-lg fa-plus-circle"></i> التقديم </a>
+                
+           
+        </dt>
+       
+
+
+
+
+    </dl>
+</div>
+<div id="addRequestSource" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        @using (Html.BeginForm("Create", "ApplyForScholarship", FormMethod.Post))
+        {
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="color: #337ab7; font-weight: bold">Apply For Scholarship</h4>
+                </div>
+                <div class="modal-body">
+                   
+                    <div class="row">
+                        <div class="form-group col-lg-12">
+                            <label>   About You :)</label>
+                            @*<input id="catId" name="catId" class="form-control">*@
+                            @*@Html.DropDownList("catId", new SelectList(ViewBag.Categories, "Id", "CatNameInArabic"), "----- Select -----", new { @class = "form-control", id = "catId" })*@
+                            <input id="message" name="message" style="height : 100px" class="form-control" multiple />
+                        <input type="hidden" value="@Model.Id" id="schId" name="schId" />
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">حفـظ</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+

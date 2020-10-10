@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>@ViewBag.Title</title>
+    <link rel="icon" type="image/png" href="~/Content/img/auc_Logo.png">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link rel="stylesheet" href="~/Content/plugins/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/css/main.css" />
+    <link rel="stylesheet" href="~/Content/css/theme.css" />
+    <link rel="stylesheet" href="~/Content/css/MoneAdmin.css" />
+    <link rel="stylesheet" href="~/Content/plugins/Font-Awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @RenderSection("Styles", false)
+
+</head>
+<body class="padTop53 ">
+
+    <div id="wrap">
+
+        <div id="top">
+            <nav class="navbar navbar-inverse navbar-fixed-top " style="padding-top: 10px;">
+
+                <a data-original-title="Show/Hide Menu" data-placement="bottom" data-tooltip="tooltip" class="accordion-toggle btn btn-primary btn-sm visible-xs" data-toggle="collapse" href="#menu" id="menu-toggle">
+                    <i class="icon-align-justify"></i>
+                </a>
+
+                <header class="navbar-header" style="padding-right: 50px"></header>
+
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown">
+                        @using (Html.BeginForm("Logoff", "Account", FormMethod.Post, new { id = "LogoutForm" }))
+                        {
+                        @Html.AntiForgeryToken()
+                        <a href="javascript:document.getElementById('LogoutForm').submit()" style="color: #894091; background-color: transparent; vertical-align: middle">
+                            تسجيل خروج <span class="fa fa-lg fa-sign-out"></span>
+                        </a>
+                        }
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+
+        <div id="left">
+            <div class="media user-media well-small">
+                <a class="user-link" href="#">
+                    <img class="media-object img-thumbnail user-img" alt="User Picture" src="~/Content/img/auc_Logo.png" width="64" height="64" />
+                </a>
+                <br />
+                <div class="media-body">
+                    <h5 class="media-heading"> AUC</h5>
+                </div>
+                <br />
+            </div>
+
+            <ul id="menu" class="collapse">
+
+                <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Scholarship" ? "active" : "")">
+                    <a href="/Scholarship/index"><i class="fa fa-lg fa-home"></i> المنح الدراسية </a>
+                </li>
+
+                <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "#" ? "active" : "")">
+                    <a href="#"><i class="fa fa-lg fa-users"></i> المستخدمين </a>
+                </li>
+                <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "#" ? "active" : "")">
+                    <a href="#"><i class="fa fa-lg fa-users"></i> الصلاحيات </a>
+                </li>
+                <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "#" ? "active" : "")">
+                    <a href="#"><i class="fa fa-lg fa-archive"></i> الاعدادات  </a>
+                </li>
+                
+
+
+            </ul>
+
+        </div>
+
+        <div id="content">
+
+            <div class="inner" style="min-height:1200px; padding-top: 30px">
+                @*@if (TempData["Message"] != null)
+                    {
+                        var Message = (Albairaq.BL.ViewModels.MessageDTO)TempData["Message"];
+                        <div class="alert @Message.CssClassName alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>@Message.Title</strong>
+                            @Message.Message
+                        </div>
+                    }*@
+                @RenderBody()
+
+            </div>
+
+        </div>
+
+    </div>
+    <div id="footer">
+        <p style="color: #894091">جميع الحقوق محفوظة للجامعة <strong> AUC  </strong></p>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("Scripts", required: false)
+    <script src="~/Content/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+</body>
+</html>

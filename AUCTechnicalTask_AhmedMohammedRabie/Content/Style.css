@@ -1,0 +1,29 @@
+﻿.navbar-default{
+    background-color:#0094ff;
+    border-color:#e7e7e7;
+  
+}
+.navbar-default .navbar-nav>li>a{
+    color:#fff;
+
+}
+    .navbar-default .navbar-nav > li > a :hover {
+        color: #e8e8e8;
+    }
+    .nav>li{
+        position:relative;
+        display:block;
+        height:75px;
+        padding-top:10px;
+    }
+.myfooter {
+    background-color:cornflowerblue;
+    text-align:justify;
+        
+}
+.subfooter {
+    background-color: #0c5c82;
+    color:white;
+    padding: 10px;
+    text-align:center;
+}

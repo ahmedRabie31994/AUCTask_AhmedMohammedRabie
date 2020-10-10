@@ -1,0 +1,106 @@
+﻿<!Doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width-device-width,intial scale=1" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <!--navbar-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-book"></i>
+                            حول الموقع
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-phone"></i>
+                            اتصل بنا
+                        </a>
+                    </li>
+                    <li>
+
+                        <a href="~/ApplyForScholarship/GetMyAppliesScholarshipBySchId">
+                            <i class="glyphicon glyphicon-book"></i>
+                            المقدم عليها
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/home/index">
+                            <i class="glyphicon glyphicon-home"></i>
+                            الرئيسية
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!--partial view-->
+                @Html.Partial("_login")
+            </div>
+
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row" >
+            @RenderBody();
+
+        </div>
+    </div>
+    <!--Footer-->
+    <footer class=" myfooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>
+                        عن الجامعه
+                    </h3>
+                    <p>
+                        تأسست الجامعة الأمريكية بالقاهرة عام 1919، وهي مؤسسة تعليمية أمريكية رائدة توفر تعليماً متميزاً باللغة الإنجليزية، وهي مركز الحياة الثقافية والاجتماعية والفكرية في العالم العربي. تعتبر الجامعة ملتقى لثقافات العالم ومنتدى للنقاش ومد أواصر التفاهم بين مختلف الثقافات وذلك لتنوع ثقافات الطلاب، والآباء،          </p>
+                </div>
+                <div class="col-md-4">
+                    <h3>
+                        عن الجامعه
+                    </h3>
+                    <p>
+                        تأسست الجامعة الأمريكية بالقاهرة عام 1919، وهي مؤسسة تعليمية أمريكية رائدة توفر تعليماً متميزاً باللغة الإنجليزية، وهي مركز الحياة الثقافية والاجتماعية والفكرية في العالم العربي. تعتبر الجامعة ملتقى لثقافات العالم ومنتدى للنقاش ومد أواصر التفاهم بين مختلف الثقافات وذلك لتنوع ثقافات الطلاب، والآباء، وأعضاء هيئة التدريس، والعاملين،
+
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h3>
+                        عن الجامعه
+                    </h3>
+                    <p>
+                        تأسست الجامعة الأمريكية بالقاهرة عام 1919، وهي مؤسسة تعليمية أمريكية رائدة توفر تعليماً متميزاً باللغة الإنجليزية، وهي مركز الحياة الثقافية والاجتماعية والفكرية في العالم العربي. تعتبر الجامعة ملتقى لثقافات العالم ومنتدى للنقاش ومد أواصر التفاهم بين مختلف الثقافات وذلك لتنوع ثقافات الطلاب، والآباء، وأعضاء هيئة التدريس، والعاملين، 
+
+
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+        <div class="subfooter">
+            <p>جميع الحقوق محفوظة لادارة الجامعة</p>
+        </div>
+    </footer>
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
+
+

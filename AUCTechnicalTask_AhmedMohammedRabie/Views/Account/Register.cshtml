@@ -1,0 +1,144 @@
+﻿@model AUCTechnicalTask_AhmedMohammedRabie.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
+}  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" rel="stylesheet" />
+
+<div class="text-center" style="padding:100px">
+
+
+    <div class="panel panel-default">
+
+
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <h4 style="color:#0094ff">انشاء حساب جديد.</h4>
+            <hr />
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-3"></div>
+
+                <div class="col-md-6">
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                </div>
+                @Html.Label("الاسم الاول", new { @class = "col-md-2 control-label" })
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+
+                <div class="col-md-6">
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                </div>
+                @Html.Label(" اسم العائلة", new { @class = "col-md-2 control-label" })
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+
+                <div class="col-md-6">
+                    @Html.TextBoxFor(m => m.University, new { @class = "form-control" })
+                </div>
+                @Html.Label("الجامعه", new { @class = "col-md-2 control-label" })
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+
+                <div class="col-md-6">
+                    @Html.TextBoxFor(m => m.Major, new { @class = "form-control" })
+                </div>
+                @Html.Label("التخصص", new { @class = "col-md-2 control-label" })
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+
+                <div class="col-md-6">
+                    @Html.TextBoxFor(m => m.GPA, new { @class = "form-control" })
+                </div>
+                @Html.Label("GPA", new { @class = "col-md-2 control-label" })
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+
+                <div class="col-md-6">
+                    @Html.TextBoxFor(m => m.NationalId, new { @class = "form-control" })
+                </div>
+                @Html.Label("الرقم القومى", new { @class = "col-md-2 control-label" })
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+
+                <div class="col-md-6">
+                    @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control" , @readonly = "true", style = "background-color:white" })
+                </div>
+                @Html.Label(" تاريخ الميلاد", new { @class = "col-md-2 control-label" })
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                </div>
+                @Html.Label("البريد الالكترونى", new { @class = "col-md-2 control-label" })
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+
+                <div class="col-md-6">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+                @Html.Label("الرقم السرى", new { @class = "col-md-2 control-label" })
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+
+                <div class="col-md-6">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                </div>
+                @Html.Label("تأكيد الرقم السرى", new { @class = "col-md-2 control-label" })
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+
+                <div class="col-md-6">
+                    <input type="file" id="CV" name="CV" class="form-control" />
+                </div>
+                @Html.Label("CV", new { @class = "col-md-2 control-label" })
+
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-8">
+                    <input type="submit" class="btn btn-success" value="تسجيل" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+
+
+<script>
+    $('#BirthDate').datetimepicker({
+        timepicker: true,
+        datepicker: true,
+        format: 'Y-m-d H:i', // formatDate
+        hours12: false,
+        step: 1
+    });
+</script>

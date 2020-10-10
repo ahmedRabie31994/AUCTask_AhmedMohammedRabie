@@ -1,0 +1,32 @@
+﻿@model IEnumerable<AUCTechnicalTask_AhmedMohammedRabie.BL.ViewModels.ScholarShip.ScholarshipDTO>
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
+}
+
+<div class="jumbotron" style="padding:100px;">
+    <h1>AUC</h1>
+    <p class="lead">مرحبا بك فى هذا التصميم البسيط لعمل برومو لموقع منح دراسية لكن الاهتمام الاكبر فى كتابة الكود بشكل صحيح   </p>
+    <p><a href="https://www.aucegypt.edu/ar/about/about-auc" class="btn btn-primary btn-lg">Read more &raquo;</a></p>
+</div>
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-3 thumbnail" style="margin-left:20px;margin-bottom:30px">
+            <img src="~/UploadedImages/scholarship/@item.ImagPath" />
+            <div class="text-center">
+                <h3>@Html.DisplayFor(model => item.Title)</h3>
+                <h5>
+                    @Html.DisplayFor(model => item.Description)
+                </h5>
+                @*<button class="btn btn-primary text-center" style="width:280px;">التفاصيل</button>*@
+                <a  class="btn btn-primary text-center" href="/Scholarship/Details?Id=@item.Id"> التفاصيل والتقديم على المنحة</a>
+
+            </div>
+        </div>
+
+    }
+</div>

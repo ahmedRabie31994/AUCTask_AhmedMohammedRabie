@@ -1,0 +1,79 @@
+﻿@using PagedList.Mvc
+@using AUCTechnicalTask_AhmedMohammedRabie.DL.Enums
+@model  PagedList.IPagedList<AUCTechnicalTask_AhmedMohammedRabie.BL.ViewModels.ScholarShip.ScholarshipDTO>
+
+@{
+    ViewBag.Title = "طلباتى";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="padding-top:100px; padding-bottom:50px;"></div>
+<h2 style="color:limegreen">طلبات التقديم الخاصة بي</h2>
+
+@if (Model != null)
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-bordered">
+                <thead style="background-color: #569b83; color: #fff">
+                    <tr>
+                        <th>رقم الطلب</th>
+                        <th> اسم المنحه</th>
+                        <th>صورة المنحة</th>
+
+
+
+                        <th>الحالة</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Title</td>
+                            <td>
+                                <img src="~/UploadedImages/scholarship/@item.ImagPath" width="75" height="50" alt="" title="صورة المنحة" class="img-fluid" />
+                            </td>
+
+
+                            <td>
+                                @if (item.Status == ApplyingStatus.NoAction)
+                                {
+
+                                    <span style="background-color:#808080;color:#fff">  تحت المراجعة </span>
+
+
+                                }
+                                else if (item.Status == ApplyingStatus.Accepted)
+                                {
+                                    <span style="background-color:#4cff00;color:#fff">  تم القبول </span>
+
+                                }
+                                else if (item.Status == ApplyingStatus.Rejected)
+                                {
+                                    <span style="background-color:#ff0000;color:#fff">  تم الرفض </span>
+
+                                }
+
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="row" style="text-align: center">
+                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+                of @Model.PageCount @Html.PagedListPager(Model, index => Url.Action("Index", new { index }))
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-danger" role="alert">
+        There is no data to be displayed
+    </div>
+}
+
