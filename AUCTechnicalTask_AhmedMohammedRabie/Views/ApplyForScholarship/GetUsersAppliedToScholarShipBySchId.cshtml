@@ -64,7 +64,7 @@
                             <td>
                                 @if (item.ApplyingStatus == ApplyingStatus.NoAction)
                                 {
-                                    using (Html.BeginForm("UpdateApplyStatus", "ApplyForScholarship", new { appId = item.Id, applyingStatus = ApplyingStatus.Accepted }, FormMethod.Post))
+                                    using (Html.BeginForm("UpdateApplyStatus", "ApplyForScholarship", new { appId = item.Id,email=item.Email, applyingStatus = ApplyingStatus.Accepted }, FormMethod.Post))
                                     {
                                         var ApproveModal = "ApproveModal" + item.Id;
                                         <a class="btn btn-outline btn-success" data-toggle="modal" data-target="#@ApproveModal">قبول الطلب</a>

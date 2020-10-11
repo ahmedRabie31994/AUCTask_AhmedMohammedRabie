@@ -3,6 +3,7 @@ using AUCTechnicalTask_AhmedMohammedRabie.BL.Managers.ApplyForScholarship.Contra
 using AUCTechnicalTask_AhmedMohammedRabie.BL.ViewModels.ApplyFrScholarShip;
 using AUCTechnicalTask_AhmedMohammedRabie.DL.Enums;
 using AUCTechnicalTask_AhmedMohammedRabie.DL.Models;
+using AUCTechnicalTask_AhmedMohammedRabie.Models;
 using Microsoft.AspNet.Identity;
 using OfficeOpenXml;
 using PagedList;
@@ -19,9 +20,12 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Controllers
     {
         //test githup
         private readonly IApplyForScholarshipManager _manager;
+        private  SendEmailHelper _sendEmailHelper;
+
         public ApplyForScholarshipController()
         {
             _manager = new ApplyForScholarshipManager();
+            _sendEmailHelper = new SendEmailHelper();
 
         }
         // GET: ApplyForScholarship
@@ -73,7 +77,7 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult UpdateApplyStatus(int appId , ApplyingStatus applyingStatus)
+        public ActionResult UpdateApplyStatus(int appId,string email , ApplyingStatus applyingStatus)
         {
             string userId = User.Identity.GetUserId();
 
@@ -90,6 +94,8 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Controllers
             if (checkSuccess)
             {
                 var singleApply = _manager.GetById(appId);
+                _sendEmailHelper.sendEmailConfirmation(email,applyingStatus);
+
                 return RedirectToAction("GetUsersAppliedToScholarShipBySchId", routeValues: new { SchId = singleApply.ScholarshipId });
 
                // return RedirectToAction("Index", "Scholarship");
