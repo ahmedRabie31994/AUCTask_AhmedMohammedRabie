@@ -65,7 +65,7 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Models
 
     public class RegisterViewModel
     {
-        [Required]
+        [Required (ErrorMessage = "Email is Required")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -81,14 +81,14 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [Required(ErrorMessage = "this Field is Required")]
+        [Required(ErrorMessage = "this FirstName is Required")]
         [MaxLength(50, ErrorMessage = "National ID must less than 50 char")]
 
         public string FirstName { get; set; }
-        [Required(ErrorMessage = "this Field is Required")]
+        [Required(ErrorMessage = "this LastName is Required")]
 
         public string LastName { get; set; }
-        [Required(ErrorMessage = "this field is required")]
+        [Required(ErrorMessage = "this BirthDate is required")]
 
         public DateTime BirthDate { get; set; }
         [Required]
@@ -98,9 +98,9 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Models
         public string NationalId { get; set; }
         [Required(ErrorMessage = "this Field is Required")]
         public string University { get; set; }
-        [Required(ErrorMessage = "this Field is Required")]
+        [Required(ErrorMessage = "this Major is Required")]
         public string Major { get; set; }
-        [Required(ErrorMessage = "this Field is Required")]
+        [Required(ErrorMessage = "this GPA is Required")]
         public float GPA { get; set; }
         public string ResumeLink { get; set; }
     }

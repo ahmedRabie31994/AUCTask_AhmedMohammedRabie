@@ -35,6 +35,7 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Controllers
             return View();
         }
         // GET: ApplyForScholarship
+        [Authorize(Roles ="Admin")]
         public ActionResult GetUsersAppliedToScholarShipBySchId(int SchId , int? index)
         {
             int PageSize = 10;
@@ -44,6 +45,7 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Controllers
 
             return View(query);
         }
+        [Authorize]
         public ActionResult GetMyAppliesScholarshipBySchId(int? index)
         {
             string userId = User.Identity.GetUserId();

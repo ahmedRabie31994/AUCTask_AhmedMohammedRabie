@@ -11,7 +11,6 @@ using System.Web.Mvc;
 
 namespace AUCTechnicalTask_AhmedMohammedRabie.Controllers
 {
-    [Authorize]
     public class ScholarshipController : Controller
     {
         private readonly IScholarship _manager;
@@ -21,6 +20,7 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Controllers
            
         }
         // GET: Scholarhip
+        [Authorize(Roles = "Admin")]
         public ActionResult Index(int? index)
         {
             int PageSize = 10;
@@ -35,6 +35,7 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Controllers
             var item = _manager.GetById(Id);
             return View(item);
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Create(string Title,string TitleInEng,string Description, HttpPostedFileBase scholarshipImage)
         {
