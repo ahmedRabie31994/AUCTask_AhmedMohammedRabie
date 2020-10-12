@@ -106,10 +106,13 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Controllers
             
             return View();
         }
-        public FileResult Download(string FileName)
+      
+        public ActionResult DownloadFile(string FileName)
         {
-            var virtualPath = "~/UploadedImages/CV/" + FileName;
-            return File(virtualPath, "application/force- download", Path.GetFileName(virtualPath));
+            string path = AppDomain.CurrentDomain.BaseDirectory + "UploadedImages/CV/";
+            byte[] fileBytes = System.IO.File.ReadAllBytes(path + FileName);
+            string fileName = FileName;
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
         public void DownloadExcel(int SchId)
         {

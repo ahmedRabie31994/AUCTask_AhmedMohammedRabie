@@ -554,6 +554,7 @@
     <Content Include="Views\ApplyForScholarship\GetUsersAppliedToScholarShipBySchId.cshtml" />
     <Content Include="Views\ApplyForScholarship\GetMyAppliesScholarshipBySchId.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\ApplyForScholarship\UpdateApplication.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -81,6 +81,8 @@ else
         <div class="modal-dialog">
             @using (Html.BeginForm("Create", "Scholarship", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -121,7 +123,7 @@ else
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success">حفـظ</button>
+                        <button type="submit" id="btnSave" class="btn btn-success">حفـظ</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -143,57 +145,27 @@ else
 <script src="~/Scripts/jquery-3.3.1.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
-    
+    $("#btnSave").click(function () {
+
+        if ($("#Title").val() == "" || $("#Title").val() == null || $("#scholarshipImage").val() == null || $("#scholarshipImage").val() == "" || $("#TitleInEng").val() == null || $("#TitleInEng").val() == "" || $("#Description").val() == null || $("#Description").val() == "")
+        {
+            alert("يجب ادخال جميع الحقول");
+            return false;
+        }
+        var fileName = document.getElementById("scholarshipImage").value;
+        var extensionimage = fileName.substr(fileName.lastIndexOf(".") + 1)
+        var validext = ['jpg', 'gif', 'png', 'bmp', 'jpeg'];
+        debugger;
+        if (fileName != "") {
+            if ($.inArray(extensionimage, validext) == -1) {
+                alert("يجب اضافة صورة مناسبة");
+                return false;
+            }
+        }
+
+    });
 
     
-    //$("#benconfirm").click(function () {
-    //    debugger;
-
-    //    $("#benconfirm").hide();
-
-    //});
-    //$("#btnSaveInfo").click(function () {
-
-    //    var model = {};
-    //    model.Title = $("#Title").val();
-    //    model.TitleInEnglish = $("#TitleInEnglish").val();
-    //    model.Description = $("#Description").val();
-       
-    //    var formData = new FormData();
-    //    var totalFiles = document.getElementById("scholarshipImage").files.length;
-    //    for (var i = 0; i < totalFiles; i++) {
-    //        var file = document.getElementById("scholarshipImage").files[i];
-    //        formData.append("scholarshipImage", file);
-    //    debugger
-    //    $.ajax({
-
-    //        async: true,
-    //        type: "Post",
-    //        dataType: "Json",
-    //        cotentType: "application/json",
-    //        url: "/Scholarship/Create",
-    //        data: { model: model }, 
-
-    //        success: function () {
-    //            debugger;
-
-    //            alert("تمت الاضافة بنجاح ")
-
-    //            window.location.href = "/Scholarship/Index"
-
-    //        }, error: function () {
-    //            debugger
-    //            alert("تمت الاضافة بنجاح")
-    //            window.location.href = "/Scholarship/Index"
-
-    //            //window.location.href = "/Event/Index"
-    //        }
-
-
-    //    });
-
-
-
-    //});
+   
 </script>
 

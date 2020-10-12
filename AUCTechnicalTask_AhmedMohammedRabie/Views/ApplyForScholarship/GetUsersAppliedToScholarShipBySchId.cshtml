@@ -52,9 +52,33 @@
                             <td>
                                 @if(item.CVLink !=null && item.CVLink !="" )
                                 {
-                                           <a href = "~/UploadedImages/CV/@item.CVLink" target = "_blank" ><span><i class="glyphicon glyphicon-download"></i></span>
-                                
-                                           </a>
+                                           
+                                           using (Html.BeginForm("DownloadFile", "ApplyForScholarship", new { FileName = item.CVLink,email=item.Email, applyingStatus = ApplyingStatus.Accepted }, FormMethod.Post))
+                                         {
+                                        var ApproveModal = "ApproveModal" + item.Id;
+                                        <a class="btn btn-outline btn-success" data-toggle="modal" data-target="#@ApproveModal"><span><i class="glyphicon glyphicon-download"></i></span></a>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="@ApproveModal" tabindex="-1" role="dialog" data-keyboard="false" aria-labelledby="myModalLabel">
+                                            <div class="modal-dialog modal-xs" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header" style="vertical-align: central">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="text-align: left">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        <h4 class="modal-title" id="myModalLabel"> تحميل سيرة ذاتية </h4>
+
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        هل أنت متأكد من تنزيل  السيرة الذاتية؟
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <input type="submit" value="تأكيد" class="btn btn-success" />
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">إلغاء</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
                                 }
                                 else
                                 {

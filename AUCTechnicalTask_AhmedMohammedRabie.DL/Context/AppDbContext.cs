@@ -22,5 +22,6 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.DL.Context
         public DbSet<scholarship>  Scholarships { get; set; }
         public DbSet<ApplyForScholarship>   ApplyForScholarships { get; set; }
 
+
     }
 }
