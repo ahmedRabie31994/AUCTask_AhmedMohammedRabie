@@ -43,7 +43,7 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Controllers
             TempData["SchId"] = SchId;
             var query = _manager.GetAllByScholarScholarId(SchId).ToPagedList(PageIndex, PageSize); ;
 
-            return View(query);
+            return View(query);    
         }
         [Authorize]
         public ActionResult GetMyAppliesScholarshipBySchId(int? index)
