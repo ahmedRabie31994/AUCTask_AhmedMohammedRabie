@@ -16,6 +16,8 @@ using System.Web.Mvc;
 
 namespace AUCTechnicalTask_AhmedMohammedRabie.Controllers
 {
+    //test last commit 14-10-2020
+
     public class ApplyForScholarshipController : Controller
     {
         //test githup
@@ -45,6 +47,7 @@ namespace AUCTechnicalTask_AhmedMohammedRabie.Controllers
 
             return View(query);    
         }
+        //test last commit 14-10-2020
         [Authorize]
         public ActionResult GetMyAppliesScholarshipBySchId(int? index)
         {
